@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+<div class="col-lg-8">
+    <!-- Post content-->
+    <article>
+        <!-- Post header-->
+        <header class="mb-4">
+            <!-- Post title-->
+            <h3 class="fw-bolder mb-1">{{article.title}}</h3>
+            <hr>
+            <!-- Post meta content-->
+            <div class="text-muted fst-italic mb-2">{{article.created_date}}</div>
+            <hr>
+            <!-- Post categories-->
+            <p class="lead">
+                by
+                {{article.author.username}}
+            </p>
+            <hr>
+        </header>
+        <!--Preview image figure-->
+        {% if article.article_image %}
+        <figure class="mb-4"><img class="img-fluid rounded" src="{{article.article_image.url}}" alt="..."></figure>
+        {% endif %}
+        
+        <!-- Post content-->
+        <section class="mb-5">
+            {{article.content|safe}}
+        </section>
+    </article>
+    <section class="mb-5">
+        {% csrf_token %}
+    <div class="card bg-light">
+        <div class="card-body">
+            <!-- Comment form-->
+            <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Yorum Ekle....."></textarea></form>
+            <button type="submit" class="btn btn-danger">Ekle</button>
+            
+            
+        </div>
+    </div>
+</section> 
+</div>
+
+
+
+{% endblock body %}
