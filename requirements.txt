@@ -1,0 +1,5 @@
+Django==4.0.2
+django-ckeditor
+django-cleanup
+django-crispy-forms
+django-js-asset
